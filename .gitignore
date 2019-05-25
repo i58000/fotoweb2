@@ -86,3 +86,7 @@ yarn-error.log*
 
 #password
 password.txt
+
+#fotos
+fotos/
+fotos-temp/
