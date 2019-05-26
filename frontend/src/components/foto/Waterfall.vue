@@ -319,7 +319,7 @@ export default {
       return name;
     },
     loadMoreOne() {
-      // debugger;
+      debugger;
       if (this.showQueue.length > 0) {
         console.log("this.showQueue.length > 0");
         return;
