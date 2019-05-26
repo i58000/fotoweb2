@@ -149,8 +149,8 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 const UPLOAD = {
-  MAX_HEIGHT: 600,
-  MAX_WIDTH: 800
+  MAX_HEIGHT: 400,
+  MAX_WIDTH: 400
 };
 
 export default {
