@@ -233,9 +233,9 @@ export default {
       let imgs = this.cates[this.whichCate].imgs;
       if (!imgs || imgs.length == 0) {
         // get cates
-        this.$refs.waterfall.reload([]);
+        this.reload([]);
       } else {
-        this.$refs.waterfall.reload(this.cates[this.whichCate].imgs);
+        this.reload(this.cates[this.whichCate].imgs);
       }
     },
     username() {
@@ -251,6 +251,9 @@ export default {
     this.login();
   },
   methods: {
+    reload(imgs) {
+      this.$refs.waterfall.reload(imgs, this.cates[this.whichCate].name);
+    },
     getCates() {
       let url = this.url + "cates";
       axios
@@ -258,7 +261,7 @@ export default {
         .then(response => {
           console.log(response);
           this.cates = response.data;
-          this.$refs.waterfall.reload(this.cates[this.whichCate].imgs);
+          this.reload(this.cates[this.whichCate].imgs);
         })
         .catch(error => {
           console.log(error);
@@ -432,7 +435,7 @@ export default {
             if (this.whichCate == index) {
               let cate = this.cates[this.whichCate];
               let imgs = cate ? cate.imgs : [];
-              this.$refs.waterfall.reload(imgs);
+              this.reload(imgs);
             } else if (this.whichCate > index) {
               this.whichCate--;
             }

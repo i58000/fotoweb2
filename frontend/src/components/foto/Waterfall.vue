@@ -8,7 +8,7 @@
         :style="item.style"
         v-show="!item.delete"
       >
-        <img :src="item.src" @load="onloadImg(index,$event)">
+        <img :src="item.src" @load="onloadImg(index,$event)" :cate="cate">
         <div class="cover">
           <div class="op">
             <div class="show" @click="show(index)"></div>
@@ -57,6 +57,7 @@ export default {
   },
   data() {
     return {
+      cate: null,
       admin: false,
       whichFotoEdit: null,
       editFotoName: null,
@@ -180,7 +181,11 @@ export default {
       // this.$forceUpdate();
       this.refall();
     },
-    reload(imgs) {
+    reload(imgs, cate) {
+      this.cate = cate;
+      // ===
+      this.loadingCount = 0;
+      this.showTo = 0;
       this.loaded = [];
       this.loadDone = false;
       this.showDone = false;
@@ -241,6 +246,10 @@ export default {
       }
     },
     onloadImg(i, e) {
+      // debugger;
+      if (e.path[0].getAttribute("cate") != this.cate) {
+        return;
+      }
       if (this.loaded.indexOf(i) > -1) return;
       this.loaded.push(i);
       let h = e.path[0].height;
