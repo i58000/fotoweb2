@@ -81,7 +81,8 @@ export default {
       loadDone: false,
       showDone: false,
       deleting: false,
-      sorting: false
+      sorting: false,
+      loadingCount: 0
     };
   },
   computed: {
@@ -249,6 +250,7 @@ export default {
       this.showMoreOne(i);
     },
     showMoreOne(i, dis) {
+      this.loadingCount--;
       // debugger;
       console.log("---", this.loadTo, i);
       let d = dis ? dis : 0;
@@ -278,6 +280,11 @@ export default {
       return name;
     },
     loadMoreOne() {
+      if (this.loadingCount >= 3) {
+        return;
+      } else {
+        this.loadingCount++;
+      }
       let src = this.imgSrc[this.loadTo];
       // let arr = src.split("/");
       // let name = arr[arr.length - 1].split(".")[0];
