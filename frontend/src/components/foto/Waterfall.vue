@@ -82,7 +82,8 @@ export default {
       showDone: false,
       deleting: false,
       sorting: false,
-      loadingCount: 0
+      loadingCount: 0,
+      showTo: 0
     };
   },
   computed: {
@@ -246,13 +247,13 @@ export default {
       let w = e.path[0].width;
       let imgHeight = (h / w) * this.imgWidth;
       this.imgList[i].imgHeight = imgHeight;
-      console.log("+++", this.loadTo, i);
       this.showMoreOne(i);
     },
     showMoreOne(i, dis) {
+      this.showTo++;
       this.loadingCount--;
       // debugger;
-      console.log("---", this.loadTo, i);
+      console.log("---", this.showTo, i);
       let d = dis ? dis : 0;
       let top =
         this.fallToMin.value + (i - d < this.config.col ? 0 : this.config.gap);
