@@ -13,8 +13,8 @@
             :placeholder="item.name"
             v-model="editCateName"
             spellcheck="false"
-            onkeydown="if(event.keyCode==32) return false"
           >
+          <!-- onkeydown="if(event.keyCode==32) return false" -->
           <div
             v-else
             class="text"

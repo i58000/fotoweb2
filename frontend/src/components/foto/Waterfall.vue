@@ -169,16 +169,11 @@ export default {
       this.imgList[index].name = name;
       this.imgList[index].src = newsrc;
 
-      console.log(this.imgList[0].style);
-      console.log(this.imgList[1].style);
-
       // this.sorting = true;
       this.imgList.sort((a, b) => {
         console.log("com", a.name, b.name);
         return a.name.localeCompare(b.name);
       });
-      console.log(this.imgList[0].style);
-      console.log(this.imgList[1].style);
       this.editFotoCancel();
       // this.$forceUpdate();
       this.refall();

@@ -117,10 +117,10 @@ router.get("/cates", function (req, res, next) {
 
 router.get("/fotos/*", function (req, res) {
     let backend = path.resolve(__dirname, "../../");
-    // console.log(backend);
+    let urlDecoded = decodeURI(req.url)
     res.header("Content-Type", "image/png");
-    res.sendFile(backend + "/" + req.url);
-    // console.log("Request for " + req.url + " received.");
+    res.sendFile(backend + "/" + urlDecoded);
+    // console.log("Request url:" + req.url + " --" + urlDecoded);
 });
 
 router.post("/admin/*", function (req, res, next) {
