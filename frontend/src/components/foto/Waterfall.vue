@@ -279,6 +279,7 @@ export default {
       //     this.$set(this.showQueue, this.showQueue.length, i);
       //   }, 5000);
       // } else {
+      this.loadingCount--;
       if (this.loaded.indexOf(i) > -1) return;
       this.loaded.push(i);
       let h = e.path[0].height;
@@ -320,9 +321,11 @@ export default {
     },
     loadMoreOne() {
       debugger;
-      if (this.showQueue.length > 0) {
-        console.log("this.showQueue.length > 0");
+      if (this.loadingCount >= 3) {
+        console.log("loadingCount");
         return;
+      } else {
+        this.loadingCount++;
       }
       let src = this.imgSrc[this.loadTo];
       // let arr = src.split("/");
