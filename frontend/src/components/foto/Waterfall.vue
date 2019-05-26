@@ -81,7 +81,10 @@ export default {
       loadDone: false,
       showDone: false,
       deleting: false,
-      sorting: false
+      sorting: false,
+      showQueue: [],
+      showTo: 0,
+      loadWait: false
     };
   },
   computed: {
@@ -112,12 +115,33 @@ export default {
       } else {
         console.log("showDone watch exception");
       }
+    },
+    showQueue() {
+      this.checkShowQueue();
     }
   },
   created() {
     console.log(this);
+    Array.prototype.remove = function(val) {
+      var index = this.indexOf(val);
+      if (index > -1) {
+        this.splice(index, 1);
+      }
+    };
   },
   methods: {
+    checkShowQueue() {
+      // debugger;
+      if (this.showQueue.indexOf(this.showTo) > -1) {
+        // this.loadWait = false;
+        this.showMoreOne(this.showTo);
+        this.showQueue.remove(this.showTo);
+        this.showTo++;
+        this.checkShowQueue();
+      } else {
+        // this.loadWait = true;
+      }
+    },
     deleteFoto(index) {
       console.log("deleteFoto", index);
       this.deleting = true;
@@ -215,6 +239,10 @@ export default {
           clearInterval(interval);
           console.log("all loaded");
         }
+        // wait
+        // else if (this.loadWait) {
+        //   console.log("wait");
+        // }
         // scroll to bottom, load more one
         else if (
           this.dom.imgs.clientHeight + this.dom.imgs.scrollTop >
@@ -239,13 +267,28 @@ export default {
       }
     },
     onloadImg(i, e) {
+      // if (i == 1) {
+      //   setTimeout(() => {
+      //     if (this.loaded.indexOf(i) > -1) return;
+      //     this.loaded.push(i);
+      //     let h = e.path[0].height;
+      //     let w = e.path[0].width;
+      //     let imgHeight = (h / w) * this.imgWidth;
+      //     this.imgList[i].imgHeight = imgHeight;
+      //     // this.showMoreOne(i);
+      //     this.$set(this.showQueue, this.showQueue.length, i);
+      //   }, 5000);
+      // } else {
       if (this.loaded.indexOf(i) > -1) return;
       this.loaded.push(i);
       let h = e.path[0].height;
       let w = e.path[0].width;
       let imgHeight = (h / w) * this.imgWidth;
       this.imgList[i].imgHeight = imgHeight;
-      this.showMoreOne(i);
+      // this.showMoreOne(i);
+      //zzzz
+      this.$set(this.showQueue, this.showQueue.length, i);
+      // }
     },
     showMoreOne(i, dis) {
       // debugger;
@@ -276,6 +319,11 @@ export default {
       return name;
     },
     loadMoreOne() {
+      // debugger;
+      if (this.showQueue.length > 0) {
+        // console.log("this.showQueue.length > 0");
+        return;
+      }
       let src = this.imgSrc[this.loadTo];
       // let arr = src.split("/");
       // let name = arr[arr.length - 1].split(".")[0];

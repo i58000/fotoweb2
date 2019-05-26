@@ -208,7 +208,7 @@ router.post("/admin/deleteFoto", function (req, res, next) {
         }
     });
 });
-router.post("/admin/upload", upload.array("foto", 9), function (req, res, next) {
+router.post("/admin/upload", upload.array("foto"), function (req, res, next) {
     // console.log(req.files);
     // console.log(req.body);
     // console.log(req.session);

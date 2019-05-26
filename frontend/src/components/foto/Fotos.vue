@@ -268,7 +268,6 @@ export default {
       let arr = str.split(global.FOTOS_SEP);
       return arr[arr.length - 1];
     },
-
     upload() {
       let files = this.$refs.file.files;
       console.log(files);
