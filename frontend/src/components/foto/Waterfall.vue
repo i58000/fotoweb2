@@ -250,13 +250,14 @@ export default {
       this.showMoreOne(i);
     },
     showMoreOne(i, dis) {
-      this.showTo++;
+      // this.showTo++;
       this.loadingCount--;
       // debugger;
       console.log("---", this.showTo, i);
       let d = dis ? dis : 0;
       let top =
-        this.fallToMin.value + (i - d < this.config.col ? 0 : this.config.gap);
+        this.fallToMin.value +
+        (this.showTo++ - d < this.config.col ? 0 : this.config.gap);
       let col = this.fallToMin.index;
       this.imgList[i].style.height = this.imgList[i].imgHeight + "px";
       this.imgList[i].style.top = top + "px";
