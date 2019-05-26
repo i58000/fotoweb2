@@ -321,7 +321,7 @@ export default {
     loadMoreOne() {
       // debugger;
       if (this.showQueue.length > 0) {
-        // console.log("this.showQueue.length > 0");
+        console.log("this.showQueue.length > 0");
         return;
       }
       let src = this.imgSrc[this.loadTo];
