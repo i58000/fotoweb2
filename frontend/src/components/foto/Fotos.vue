@@ -71,7 +71,7 @@
           ref="waterfall"
           class="waterfall"
           :gap="20"
-          :col="3"
+          :col="5"
           @show="showFoto"
           @showDeleteFoto="showDeleteFoto"
           @editFoto="editFoto"
@@ -553,7 +553,7 @@ export default {
             setTimeout(() => {
               this.$refs.dialogLogin.close();
             }, 500);
-          } else if (response.data == "success") {
+          } else if (response.data == "fail") {
             this.$refs.message.alert("Wrong");
           } else if (response.data == "") {
             console.log("auto login fail");
