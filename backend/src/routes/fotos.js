@@ -60,7 +60,7 @@ router.post("/login", function (req, res) {
     }
     // login
     else {
-        if (req.body.username == "admin" && req.body.password == "admin") {
+        if (req.body.username == "admin" && req.body.password == "+nana") {
             req.session.username = req.body.username; // 登录成功，设置 session
             res.send("success");
             // console.log(req.session);
