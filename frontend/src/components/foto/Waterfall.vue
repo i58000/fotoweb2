@@ -8,7 +8,7 @@
         :style="item.style"
         v-show="!item.delete"
       >
-        <img :src="item.src" @load="onloadImg(index,$event)" :cate="cate">
+        <img :src="item.src" @load="onloadImg(index,$event)" :cate="cate" />
         <div class="cover">
           <div class="op">
             <div class="show" @click="show(index)"></div>
@@ -35,7 +35,7 @@
             v-model="editFotoName"
             spellcheck="false"
             onkeydown="if(event.keyCode==32) return false"
-          >
+          />
           <div class="text" v-else>{{getFotoDisplayName(item.name)}}</div>
         </div>
       </div>
@@ -338,7 +338,7 @@ export default {
   /*滚动条里面小方块*/
   border-radius: 5px;
   /* -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
-  background: #535353;
+  background: #ddd;
 }
 .imgs::-webkit-scrollbar-track {
   /*滚动条里面轨道*/

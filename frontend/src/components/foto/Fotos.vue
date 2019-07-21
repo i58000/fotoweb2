@@ -2,7 +2,9 @@
   <div class="fotos">
     <div class="left">
       <div class="left-in">
-        <div class="title">FOTOS GALLERY WATERFALL</div>
+        <div class="title">JANANA</div>
+        <!-- <div class="title" style="font-size: 30px">STUDIUM</div>
+        <div class="title" style="font-size: 30px">PUNCTUM</div> -->
         <div class="title-sub" v-for="(item, index) in cates" :key="index">
           <div class="text-prefix" :class="getClass('text-prefix-active', index)"></div>
           <!-- name or edit name -->
@@ -13,7 +15,7 @@
             :placeholder="item.name"
             v-model="editCateName"
             spellcheck="false"
-          >
+          />
           <!-- onkeydown="if(event.keyCode==32) return false" -->
           <div
             v-else
@@ -44,7 +46,7 @@
               v-model="newCateName"
               spellcheck="false"
               onkeydown="if(event.keyCode==32) return false"
-            >
+            />
             <div class="ok-cancel">
               <div class="text text-edit text-sub" @click="newCateOK">OK</div>
               <div class="text text-edit text-sub" @click="editCateCancel">CANCEL</div>
@@ -53,13 +55,13 @@
           <div v-else class="text-new text text-sub" @click="newCate">NEW</div>
         </div>
         <div class="info">
-          Powered by ANJINSHUO
-          <br>Contact via
+          <!-- Powered by ANJINSHUO -->
+          <br />Contact via
           <span class="wechat">
             WECHAT
-            <img class="wechat-qrcode" src="./imgs/qrcode.png">
+            <img class="wechat-qrcode" src="./imgs/qrcode.png" />
           </span>
-          <br>
+          <br />
           <span v-if="username" class="admin" @click="logout">Logout</span>
           <span v-else class="admin" @click="showLogin">Login as admin</span>
         </div>
@@ -93,7 +95,7 @@
         </template>
         <template v-else>
           <div class="text">LOGIN AS ADMIN</div>
-          <input type="password" v-model="password" @keydown.enter="login">
+          <input type="password" v-model="password" @keydown.enter="login" />
           <button @click="login">
             <div class="arrow"></div>
           </button>
@@ -114,7 +116,7 @@
           name="file"
           multiple
           accept="image/gif, image/jpeg, image/png, image/jpg"
-        >
+        />
         <button @click="upload">
           <div class="arrow"></div>
         </button>
@@ -608,7 +610,7 @@ export default {
 .fotos {
   height: 100%;
   width: 100%;
-  background: #111;
+  /* background: #111; */
 }
 
 .left {
@@ -642,19 +644,19 @@ export default {
   height: 100%;
 }
 .title {
-  letter-spacing: 5px;
-  font-size: 36px;
-  color: #fff;
+  letter-spacing: 2px;
+  font-size: 50px;
+  /* color: #fff; */
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .title-sub {
   letter-spacing: 2px;
   font-size: 16px;
   line-height: 26px;
-  color: #ddd;
+  /* color: #ddd; */
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -674,7 +676,8 @@ export default {
   display: inline-block;
 }
 .text-prefix-active {
-  background: #fff;
+  /* background: #fff; */
+  background: black;
 }
 .text {
   display: inline-block;
@@ -682,7 +685,7 @@ export default {
   margin: 0 5px;
 }
 .text-active {
-  color: #fff;
+  /* color: #fff; */
   font-weight: bold;
 }
 .info {
@@ -714,9 +717,9 @@ export default {
   top: -130px;
   left: calc(50% - 60px);
   padding: 10px;
-  background: #3336;
+  /* background: #3336; */
   border-radius: 5px;
-  box-shadow: 0 0 10px #000a;
+  box-shadow: 0 0 40px #0003;
 }
 .wechat:hover .wechat-qrcode {
   /* display: unset; */
@@ -735,7 +738,7 @@ export default {
   height: 160px;
 }
 .login input {
-  background: #fff;
+  /* background: #fff; */
   position: absolute;
   top: 60px;
   border: 0;
@@ -832,7 +835,7 @@ export default {
   background: transparent;
   border: 0;
   outline: 0;
-  color: #ddd;
+  /* color: #ddd; */
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   width: 90%;
@@ -840,7 +843,8 @@ export default {
   display: inline-block;
   height: 20px;
   margin-left: 5px;
-  border-bottom: #fff solid 1px;
+  /* border-bottom: #fff solid 1px; */
+  border-bottom: #000 solid 1px;
 }
 .input-cate-new {
   font-size: 12px;

@@ -4,7 +4,7 @@
     <div class="prev">
       <div class="arrow" @click="prev"></div>
     </div>
-    <img class="img" :src="src">
+    <img class="img" :src="src" />
     <div class="next">
       <div class="arrow arrow-right" @click="next"></div>
     </div>
@@ -139,6 +139,7 @@ export default {
   margin: 0 100px;
 }
 .arrow {
+  cursor: pointer;
   width: 30px;
   height: 30px;
   border-left: solid 10px #fffa;
