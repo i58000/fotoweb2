@@ -1,6 +1,6 @@
 if (process.env.NODE_ENV == 'production') {
     global.config = {
-        host: 'anjinshuo.tech',
+        host: 'caijiapei.com',
         port: '80'
     }
 } else {
