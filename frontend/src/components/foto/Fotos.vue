@@ -171,7 +171,8 @@ export default {
       editCateName: null,
       whichCateEdit: null,
       url:
-        "http://" + global.config.host + ":" + global.config.port + "/fotos/",
+        global.config.context + "fotos/",
+        // "http://" + global.config.host + ":" + global.config.port + "/fotos/",
       username: null,
       password: null,
       whichFoto: 0,
