@@ -282,13 +282,17 @@ export default {
       }
     },
     getFotoDisplayName(str) {
-      let arr = str.split(global.FOTOS_SEP);
-      return arr[arr.length - 1];
+      if (str) {
+        let arr = str.split(global.FOTOS_SEP);
+        return arr[arr.length - 1];
+      }
     },
     getFotoNameFromSrc(src) {
-      let arr = src.split("/");
-      let name = arr[arr.length - 1].split(".")[0];
-      return name;
+      if (src) {
+        let arr = src.split("/");
+        let name = arr[arr.length - 1].split(".")[0];
+        return name;
+      }
     },
     loadMoreOne() {
       if (this.loadingCount >= 3) {

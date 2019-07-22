@@ -2,9 +2,9 @@
   <div class="fotos">
     <div class="left">
       <div class="left-in">
-        <div class="title">JANANA</div>
+        <div class="title">CAIJIAPEI</div>
         <!-- <div class="title" style="font-size: 30px">STUDIUM</div>
-        <div class="title" style="font-size: 30px">PUNCTUM</div> -->
+        <div class="title" style="font-size: 30px">PUNCTUM</div>-->
         <div class="title-sub" v-for="(item, index) in cates" :key="index">
           <div class="text-prefix" :class="getClass('text-prefix-active', index)"></div>
           <!-- name or edit name -->
@@ -69,7 +69,9 @@
     </div>
     <div class="right">
       <div class="right-in">
+        <About v-show="isAbout"></About>
         <Waterfall
+          v-show="!isAbout"
           ref="waterfall"
           class="waterfall"
           :gap="20"
@@ -146,6 +148,7 @@ import Waterfall from "./Waterfall.vue";
 import Showfoto from "./Showfoto.vue";
 import Message from "./Message.vue";
 import Dialog from "./Dialog.vue";
+import About from "./About.vue";
 
 import axios from "axios";
 axios.defaults.withCredentials = true;
@@ -156,7 +159,7 @@ const UPLOAD = {
 };
 
 export default {
-  components: { Waterfall, Showfoto, Message, Dialog },
+  components: { Waterfall, Showfoto, Message, Dialog, About },
   data() {
     return {
       postconfig: {
@@ -170,75 +173,33 @@ export default {
       newCateName: null,
       editCateName: null,
       whichCateEdit: null,
-      url:
-        global.config.context + "fotos/",
-        // "http://" + global.config.host + ":" + global.config.port + "/fotos/",
+      url: global.config.context + "fotos/",
+      // "http://" + global.config.host + ":" + global.config.port + "/fotos/",
       username: null,
       password: null,
       whichFoto: 0,
       whichCate: 0,
-      cates: [
-        // {
-        //   name: "APPLE",
-        //   imgs: [
-        //     require("./imgs/1.png"),
-        //     require("./imgs/2.png"),
-        //     require("./imgs/3.png"),
-        //     require("./imgs/4.png"),
-        //     require("./imgs/5.png"),
-        //     require("./imgs/6.png"),
-        //     require("./imgs/7.png"),
-        //     require("./imgs/8.png"),
-        //     require("./imgs/1.png"),
-        //     require("./imgs/2.png"),
-        //     require("./imgs/3.png"),
-        //     require("./imgs/4.png"),
-        //     require("./imgs/5.png"),
-        //     require("./imgs/6.png"),
-        //     require("./imgs/7.png"),
-        //     require("./imgs/8.png"),
-        //     require("./imgs/1.png"),
-        //     require("./imgs/2.png"),
-        //     require("./imgs/3.png"),
-        //     require("./imgs/4.png"),
-        //     require("./imgs/5.png"),
-        //     require("./imgs/6.png"),
-        //     require("./imgs/7.png"),
-        //     require("./imgs/8.png"),
-        //     require("./imgs/1.png"),
-        //     require("./imgs/2.png"),
-        //     require("./imgs/3.png"),
-        //     require("./imgs/4.png"),
-        //     require("./imgs/5.png"),
-        //     require("./imgs/6.png"),
-        //     require("./imgs/7.png"),
-        //     require("./imgs/8.png")
-        //   ]
-        // },
-        // {
-        //   name: "BANANA",
-        //   imgs: [
-        //     require("./imgs/1.png"),
-        //     require("./imgs/2.png"),
-        //     require("./imgs/3.png"),
-        //     require("./imgs/4.png")
-        //   ]
-        // },
-        // {
-        //   name: "WATERFALL",
-        //   imgs: []
-        // }
-      ]
+      cates: []
     };
+  },
+  computed: {
+    isAbout() {
+      let c = this.cates[this.whichCate];
+      return !c || c.type === "about";
+    }
   },
   watch: {
     whichCate() {
-      let imgs = this.cates[this.whichCate].imgs;
-      if (!imgs || imgs.length == 0) {
-        // get cates
-        this.reload([]);
+      if (this.isAbout) {
+        debugger;
       } else {
-        this.reload(this.cates[this.whichCate].imgs);
+        let imgs = this.cates[this.whichCate].imgs;
+        if (!imgs || imgs.length == 0) {
+          // get cates
+          this.reload([]);
+        } else {
+          this.reload(this.cates[this.whichCate].imgs);
+        }
       }
     },
     username() {
@@ -265,8 +226,10 @@ export default {
           console.log(response);
           this.cates = response.data;
           this.reload(this.cates[this.whichCate].imgs);
+          this.cates.push({ name: "ABOUT", type: "about" });
         })
         .catch(error => {
+          this.cates.push({ name: "ABOUT", type: "about" });
           console.log(error);
         });
     },
