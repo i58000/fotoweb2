@@ -53,7 +53,8 @@ export default {
   components: { Waterfall, Showfoto, Message, About },
   data() {
     return {
-      url: global.config.context + "fotos/",
+      url: "./fotos/",
+      // url: global.config.context + "fotos/",
       // "http://" + global.config.host + ":" + global.config.port + "/fotos/",
       whichFoto: 0,
       whichCate: 0,
@@ -120,10 +121,6 @@ export default {
           this.cates.push({ name: "ABOUT", type: "about" });
           console.log(error);
         });
-    },
-    getCateDisplayName(str) {
-      let arr = str.split(global.FOTOS_SEP);
-      return arr[arr.length - 1];
     },
     showFoto(i) {
       this.whichFoto = i;

@@ -30,10 +30,10 @@ router.use(
 
 router.all("*", function (req, res, next) {
     let port = process.env.NODE_ENV == "prod" ? "80" : "8080";
-    let frontHost = "http://" + global.config.host + ":" + port;
-    console.log(frontHost);
-    res.header("Access-Control-Allow-Origin", frontHost);
-    res.header("Access-Control-Allow-Credentials", "true"); //划重点
+    // let frontHost = "http://" + global.config.host + ":" + port;
+    // console.log(frontHost);
+    // res.header("Access-Control-Allow-Origin", frontHost); //"http://192.168.3.9:8080"
+    // res.header("Access-Control-Allow-Credentials", "true"); //划重点
     //Access-Control-Allow-Headers ,可根据浏览器的F12查看,把对应的粘贴在这里就行
     // res.header("Access-Control-Allow-Headers", "Content-Type");
     res.header(
@@ -98,10 +98,11 @@ router.get("/cates", function (req, res, next) {
             }
             if (stat.isFile() === true) {
                 let imgPath =
-                    "http://" +
-                    global.config.host +
-                    ":" +
-                    global.config.port +
+                    // "http://" +
+                    // global.config.host +
+                    // ":" +
+                    // global.config.port +
+                    "." +
                     "/fotos/fotos/" +
                     catename +
                     "/" +
