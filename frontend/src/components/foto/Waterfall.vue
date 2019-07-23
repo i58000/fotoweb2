@@ -116,7 +116,7 @@ export default {
         this.style.done.top = Math.max.apply(null, this.fallTo) + "px";
         // for gen scroll
         let h =
-          this.dom.imgs.clientHeight - parseInt(this.style.done.top) - 60 + 1;
+          this.dom.imgs.clientHeight - parseInt(this.style.done.top) - 20 + 1;
         if (h > 0) {
           this.style.done.height = h + "px";
           // hidden scroll bar
@@ -390,8 +390,9 @@ img {
   position: absolute;
   width: 100%;
   text-align: center;
-  /* height: 120px; */
-  margin-top: 60px;
+  height: 80px;
+  line-height: 60px;
+  margin-top: 20px;
   font-size: 12px;
 }
 .shade {
