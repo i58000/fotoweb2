@@ -106,12 +106,23 @@ export default {
       if (this.showDone == true) {
         console.log("top:", Math.max.apply(null, this.fallTo));
         this.style.done.top = Math.max.apply(null, this.fallTo) + "px";
+        // debugger
+        // this.style.done.height
       }
     },
     showDone() {
       if (this.showDone == true) {
         console.log("top:", Math.max.apply(null, this.fallTo));
         this.style.done.top = Math.max.apply(null, this.fallTo) + "px";
+        // for gen scroll
+        let h =
+          this.dom.imgs.clientHeight -
+          parseInt(this.style.done.top) -
+          60 +
+          1 +
+          "px";
+        this.style.done.height = h;
+        // debugger
       } else {
         console.log("showDone watch exception");
       }
@@ -363,11 +374,13 @@ img {
   opacity: 0;
 }
 .done {
+  /* background: red; */
   color: #999;
   position: absolute;
   width: 100%;
   text-align: center;
-  margin: 60px 0;
+  /* height: 120px; */
+  margin-top: 60px;
   font-size: 12px;
 }
 .shade {
