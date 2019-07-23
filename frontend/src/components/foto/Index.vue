@@ -2,8 +2,8 @@
   <div class="root">
     <!-- <Admin v-if="inAdmin" @toFotos="inAdmin = false"/>
     <Fotos v-else @toAdmin="inAdmin = true"/>-->
-    <FotosMobile v-if="isMobile"/>
-    <Fotos v-else/>
+    <FotosMobile v-if="isMobile" />
+    <Fotos v-else />
   </div>
 </template>
 
@@ -34,5 +34,13 @@ export default {
 <style>
 .root {
   height: 100%;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 </style>
