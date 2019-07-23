@@ -121,7 +121,7 @@ export default {
           this.style.done.height = h + "px";
           // hidden scroll bar
           this.dom.imgs.className = "imgs imgs-noscrollbar";
-          debugger;
+          // debugger;
         }
         // debugger;
       } else {
