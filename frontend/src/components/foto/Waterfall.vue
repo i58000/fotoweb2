@@ -253,8 +253,10 @@ export default {
       }
       if (this.loaded.indexOf(i) > -1) return;
       this.loaded.push(i);
-      let h = e.path[0].height;
-      let w = e.path[0].width;
+      // let h = e.path[0].height;
+      // let w = e.path[0].width;
+      let h = e.target.height;
+      let w = e.target.width;
       let imgHeight = (h / w) * this.imgWidth;
       this.imgList[i].imgHeight = imgHeight;
       this.showMoreOne(i);
