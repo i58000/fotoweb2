@@ -3,7 +3,7 @@
     <div class="header font">
       <div class="title">CAIJIAPEI</div>
       <div class="menu-block">
-        <div class="sub-title">{{cates[whichCate] && cates[whichCate] .name}}</div>
+        <div class="sub-title">{{cates[whichCate] && getCateDisplayName(cates[whichCate].name)}}</div>
         <div class="menu-btn" @click="onClickMenu"></div>
       </div>
     </div>
@@ -27,7 +27,7 @@
           class="menu-item"
           :class="index === whichCate? 'menu-item-active':''"
           @click="onClickMenuItem($event, index)"
-        >{{item.name}}</div>
+        >{{getCateDisplayName(item.name)}}</div>
         <!-- <div class="menu-item" @click="onClickMenuItem">ABOUT</div>
         <div class="menu-item" @click="onClickMenuItem">ABOUT</div>
         <div class="menu-item menu-item-active" @click="onClickMenuItem">ABOUT</div>-->
@@ -86,6 +86,10 @@ export default {
     this.getCates();
   },
   methods: {
+    getCateDisplayName(str) {
+      let arr = str.split(global.FOTOS_SEP);
+      return arr[arr.length - 1];
+    },
     onClickMenuItem(e, i) {
       console.log("onClickMenuItem", e, i);
       this.whichCate = i;
