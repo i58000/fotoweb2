@@ -10,7 +10,7 @@
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
       <div class="qrcode">
-        <img src="./imgs/qrcode.png" alt srcset />
+        <img src="./imgs/qrcode.png" alt srcset>
       </div>
     </div>
   </div>
@@ -40,22 +40,24 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 80%;
+  /* height: 100%; */
+  font-size: inherit;
 }
 .title {
-  font-size: 60px;
+  font-size: 3em;
   letter-spacing: 15px;
   font-weight: bold;
   margin-right: -18px;
 }
 .sub-title {
-  font-size: 22px;
+  font-size: 2em;
   letter-spacing: 8px;
   font-weight: bold;
   margin-right: -8px;
 }
 .text {
-  font-size: 14px;
+  font-size: 1em;
   letter-spacing: 1px;
   margin-top: 10px;
   margin-bottom: 50px;
