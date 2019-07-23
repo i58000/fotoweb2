@@ -116,13 +116,13 @@ export default {
         this.style.done.top = Math.max.apply(null, this.fallTo) + "px";
         // for gen scroll
         let h =
-          this.dom.imgs.clientHeight -
-          parseInt(this.style.done.top) -
-          60 +
-          1 +
-          "px";
-        this.style.done.height = h;
-        // debugger
+          this.dom.imgs.clientHeight - parseInt(this.style.done.top) - 60 + 1;
+        if (h > 0) {
+          this.style.done.height = h + "px";
+          // hidden scroll bar
+          this.dom.imgs.style.overflow = "hidden";
+        }
+        // debugger;
       } else {
         console.log("showDone watch exception");
       }
@@ -223,6 +223,9 @@ export default {
       } else {
         this.showDone = true;
       }
+      // debugger;
+      // for gen scroll , fix ios safari
+      this.dom.imgs.style.overflow = "auto";
     },
     show(i) {
       this.$emit("show", i);
