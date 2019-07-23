@@ -69,7 +69,7 @@
     </div>
     <div class="right">
       <div class="right-in">
-        <About v-show="isAbout"></About>
+        <About v-show="isAbout" style="font-size: 20px"></About>
         <Waterfall
           v-show="!isAbout"
           ref="waterfall"
@@ -191,7 +191,7 @@ export default {
   watch: {
     whichCate() {
       if (this.isAbout) {
-        debugger;
+        // debugger;
       } else {
         let imgs = this.cates[this.whichCate].imgs;
         if (!imgs || imgs.length == 0) {

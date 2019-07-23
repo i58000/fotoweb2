@@ -1,11 +1,11 @@
 <template>
   <div class="showfoto" v-show="showCond" :style="style.showfoto">
     <div class="bg" @click="close"></div>
-    <div class="prev">
+    <div class="prev" v-if="!noArrow">
       <div class="arrow" @click="prev"></div>
     </div>
-    <img class="img" :src="src" />
-    <div class="next">
+    <img class="img" :src="src">
+    <div class="next" v-if="!noArrow">
       <div class="arrow arrow-right" @click="next"></div>
     </div>
   </div>
@@ -13,6 +13,9 @@
 
 <script>
 export default {
+  props: {
+    noArrow: Boolean
+  },
   data() {
     return {
       showCond: false,
