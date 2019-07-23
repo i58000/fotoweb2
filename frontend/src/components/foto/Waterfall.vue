@@ -120,7 +120,8 @@ export default {
         if (h > 0) {
           this.style.done.height = h + "px";
           // hidden scroll bar
-          this.dom.imgs.style.overflow = "hidden";
+          this.dom.imgs.className = "imgs imgs-noscrollbar";
+          debugger;
         }
         // debugger;
       } else {
@@ -225,7 +226,8 @@ export default {
       }
       // debugger;
       // for gen scroll , fix ios safari
-      this.dom.imgs.style.overflow = "auto";
+      // this.dom.imgs.style.overflow = "auto";
+      this.dom.imgs.className = "imgs";
     },
     show(i) {
       this.$emit("show", i);
@@ -360,6 +362,12 @@ export default {
   border-radius: 5px;
   /* -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
   background: #ddd;
+}
+.imgs-noscrollbar::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 5px;
+  /* -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
+  background: transparent;
 }
 .imgs::-webkit-scrollbar-track {
   /*滚动条里面轨道*/
