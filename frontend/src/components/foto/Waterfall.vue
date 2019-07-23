@@ -247,7 +247,8 @@ export default {
     },
     onloadImg(i, e) {
       // debugger;
-      if (e.path[0].getAttribute("cate") != this.cate) {
+      // if (e.path[0].getAttribute("cate") != this.cate) {
+      if (e.target.getAttribute("cate") != this.cate) {
         return;
       }
       if (this.loaded.indexOf(i) > -1) return;
