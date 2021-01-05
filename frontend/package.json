@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "activate-power-mode": "^1.0.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "core-js": "^2.6.5",
     "element-ui": "^2.8.2",
     "typed.js": "^2.0.10",
